@@ -1,4 +1,4 @@
-module github.com/kpango/glg
+module github.com/plelech/glg
 
 go 1.12
 
