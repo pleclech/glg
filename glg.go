@@ -305,6 +305,22 @@ func (g *Glg) SetPrefix(pref string) *Glg {
 	return g
 }
 
+// SetPrefix set Print logger prefix
+func SetPrefixForLevel(pref string, level LEVEL) *Glg {
+	return glg.SetPrefixForLevel(pref, level)
+}
+
+// SetPrefix set Print logger prefix
+func (g *Glg) SetPrefixForLevel(pref string, level LEVEL) *Glg {
+	v, ok := g.logger.Load(level)
+	if ok {
+		value := v.(*logger)
+		value.tag = pref
+		g.logger.Store(level, value)
+	}
+	return g
+}
+
 // GetCurrentMode returns current logging mode
 func (g *Glg) GetCurrentMode(level LEVEL) MODE {
 	l, ok := g.logger.Load(level)
