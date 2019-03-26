@@ -1,4 +1,4 @@
-module github.com/plelech/glg
+module github.com/pleclech/glg
 
 go 1.12
 
